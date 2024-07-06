@@ -7,13 +7,12 @@ WORKDIR /app/backend
 # Copy the requirements file into the container
 COPY app/requirements.txt .
 
-# Updating the apt package manager and installing git
-RUN apt-get update && apt-get install git -y
+# Updating the apt package manager, installing git, and cleaning up
+RUN apt-get update && apt-get install -y git ffmpeg && rm -rf /var/lib/apt/lists/*
 
 # Install the required packages
 RUN pip install --no-cache-dir -r requirements.txt
-RUN pip3 install "git+https://github.com/openai/whisper.git" 
-RUN apt-get install -y ffmpeg
+RUN pip install "git+https://github.com/openai/whisper.git"
 
 # Copy the FastAPI app into the container
 COPY . .

@@ -26,7 +26,7 @@ app.add_middleware(
 torch.cuda.is_available()
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
-model = whisper.load_model("medium", device=DEVICE)
+# model = whisper.load_model("medium", device=DEVICE)
 
 @app.post("/transcribe/")
 async def transcribe(file: UploadFile = File(...)):
@@ -37,10 +37,10 @@ async def transcribe(file: UploadFile = File(...)):
         f.write(await file.read())
     
     # Transcribe the audio file
-    result = model.transcribe(file_location)
-    transcription = result["text"]
+    # result = model.transcribe(file_location)
+    # transcription = result["text"]
     
     # Remove the temporary file
     os.remove(file_location)
     
-    return JSONResponse(content={"transcription": transcription})
+    return JSONResponse(content={"transcription": 'HELLO'})

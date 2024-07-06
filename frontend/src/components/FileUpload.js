@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { UploadButton, TranscriptionText, ErrorMessage } from '../styles';
 
-const apiUrl = process.env.FASTAPI_URL || 'http://localhost:8000';
-
 const FileUpload = () => {
   const [file, setFile] = useState(null);
   const [transcription, setTranscription] = useState('');
@@ -22,7 +20,7 @@ const FileUpload = () => {
     formData.append('file', file);
 
     try {
-      const response = await axios.post(`${apiUrl}/transcribe/`, formData, {
+      const response = await axios.post('api/transcribe/', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

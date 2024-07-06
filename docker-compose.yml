@@ -1,23 +1,22 @@
 version: '3'
 
 services:
-  backend:
+  api:
     build:
       context: ./backend
-    container_name: backend
-    ports:
-      - "8000:8000"
     volumes:
-      - ./backend/app:/app/app
+      - ./backend:/app/backend
 
-  frontend:
+  nginx:
+    restart: always
+    build:
+      context: ./nginx
+    ports:
+      - '3050:80'
+
+  client:
     build:
       context: ./frontend
-    container_name: frontend
-    ports:
-      - "3000:80"
     volumes:
       - /app/frontend/node_modules
       - ./frontend:/app/frontend
-    environment:
-      - FASTAPI_URL=http://localhost:8000

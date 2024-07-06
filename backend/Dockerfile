@@ -18,8 +18,5 @@ RUN apt-get install -y ffmpeg
 # Copy the FastAPI app into the container
 COPY . .
 
-# Expose port 8000 to the outside world
-EXPOSE 8000
-
 # Set the command to run the FastAPI server
 CMD ["uvicorn", "app.api:app", "--host", "0.0.0.0", "--port", "8000"]

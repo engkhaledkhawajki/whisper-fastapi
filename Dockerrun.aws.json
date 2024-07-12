@@ -1,0 +1,32 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [
+        {
+            "name": "client",
+            "image": "khaledkhawajki/asr-client",
+            "hostname": "client",
+            "essential": false,
+            "memory": 2048
+        },
+        {
+            "name": "server",
+            "image": "khaledkhawajki/asr-server",
+            "hostname": "api",
+            "essential": false,
+            "memory": 16384
+        },
+        {
+            "name": "nginx",
+            "image": "khaledkhawajki/asr-nginx",
+            "essential": true,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "containerPort": 80
+                }
+            ],
+            "links": ["client", "server"],
+            "memory": 2048
+        }
+    ]
+}

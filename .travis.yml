@@ -18,3 +18,16 @@ after_success:
   - docker push khaledkhawajki/asr-client
   - docker push khaledkhawajki/asr-nginx
   - docker push khaledkhawajki/asr-server
+
+deploy:
+  provider: elasticbeanstalk
+  region: us-east-1
+  app: whisper-fastapi
+  env: Whisper-fastapi-env
+  bucket_name: elasticbeanstalk-us-east-1-767397778998
+  bucket_path: whisper-fastapi-bucket-path
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY

@@ -30,3 +30,9 @@ deploy:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key: $AWS_SECRET_KEY
+
+env:
+  global:
+    - AWS_ACCESS_KEY=$AWS_ACCESS_KEY
+    - AWS_SECRET_KEY=$AWS_SECRET_KEY
+    - AWS_SDK_LOAD_CONFIG=1

@@ -13,7 +13,7 @@
             "image": "khaledkhawajki/asr-server",
             "hostname": "api",
             "essential": false,
-            "memory": 16384
+            "memory": 8096
         },
         {
             "name": "nginx",

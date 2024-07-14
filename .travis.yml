@@ -23,7 +23,7 @@ deploy:
   provider: elasticbeanstalk
   region: us-east-1
   app: whisper-fastapi
-  env: Whisper-fastapi-env
+  env: Whisper-fastapi-env-1
   bucket_name: elasticbeanstalk-us-east-1-767397778998
   bucket_path: whisper-fastapi-bucket-path
   on:

@@ -1,12 +1,14 @@
 import React from 'react';
-import FileUpload from './components/FileUpload';
-import { Container, Title } from './styles';
+import FileUploader from './components/FileUploader';
+import { Container, Title, Card, CardTitle } from './styles';
 
 const App = () => {
   return (
     <Container>
-      <Title>Whisper ASR Transcription</Title>
-      <FileUpload />
+      <Title>Automatic Speech Recognition for Arabic</Title>
+      <Card>
+        <FileUploader />
+      </Card>
     </Container>
   );
 };
